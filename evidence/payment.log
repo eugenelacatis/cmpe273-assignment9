@@ -1,0 +1,35 @@
+2026/11/16 14:42:10 service=payment event=listening addr=:8082 delay_ms=0
+2026/11/16 14:42:11 service=payment request_id=58c731d128d8e810 event=request_start method=POST path=/pay delay_ms=0
+2026/11/16 14:42:11 service=payment request_id=58c731d128d8e810 event=request_end status=200 latency_ms=0.6
+2026/11/16 14:42:11 service=payment request_id=bbcf82a0ea58b7ba event=request_start method=POST path=/pay delay_ms=0
+2026/11/16 14:42:11 service=payment request_id=bbcf82a0ea58b7ba event=request_end status=200 latency_ms=0.1
+2026/11/16 14:42:11 service=payment request_id=b9f92d8d62e0938b event=request_start method=POST path=/pay delay_ms=0
+2026/11/16 14:42:11 service=payment request_id=b9f92d8d62e0938b event=request_end status=200 latency_ms=0.0
+2026/11/16 14:42:11 service=payment event=delay_changed delay_ms=3000
+2026/11/16 14:42:11 service=payment request_id=3c25a540657537a2 event=request_start method=POST path=/pay delay_ms=3000
+2026/11/16 14:42:13 service=payment request_id=f1d82afd73a93ebf event=request_start method=POST path=/pay delay_ms=3000
+2026/11/16 14:42:14 service=payment request_id=3c25a540657537a2 event=request_end status=200 latency_ms=3001.5
+2026/11/16 14:42:15 service=payment request_id=e84617a1667d13f8 event=request_start method=POST path=/pay delay_ms=3000
+2026/11/16 14:42:16 service=payment request_id=f1d82afd73a93ebf event=request_end status=200 latency_ms=3001.3
+2026/11/16 14:42:17 service=payment event=delay_changed delay_ms=0
+2026/11/16 14:42:17 service=payment request_id=5aa9f232fef754ef event=request_start method=POST path=/pay delay_ms=0
+2026/11/16 14:42:17 service=payment request_id=5aa9f232fef754ef event=request_end status=200 latency_ms=0.1
+2026/11/16 14:42:17 service=payment request_id=a5c18b0300e12c52 event=request_start method=POST path=/pay delay_ms=0
+2026/11/16 14:42:17 service=payment request_id=a5c18b0300e12c52 event=request_end status=200 latency_ms=0.1
+2026/11/16 14:42:17 service=payment request_id=58d59cf4362a76b2 event=request_start method=POST path=/pay delay_ms=0
+2026/11/16 14:42:17 service=payment request_id=58d59cf4362a76b2 event=request_end status=200 latency_ms=0.1
+2026/11/16 14:42:17 service=payment request_id=b074efac24a6039b event=request_start method=POST path=/pay delay_ms=0
+2026/11/16 14:42:17 service=payment request_id=b074efac24a6039b event=request_end status=200 latency_ms=0.0
+2026/11/16 14:42:17 service=payment request_id=4fc7d5a7ad3bcca8 event=request_start method=POST path=/pay delay_ms=0
+2026/11/16 14:42:17 service=payment request_id=4fc7d5a7ad3bcca8 event=request_end status=200 latency_ms=0.0
+2026/11/16 14:42:17 service=payment request_id=902b3bad709bb990 event=request_start method=POST path=/pay delay_ms=0
+2026/11/16 14:42:17 service=payment request_id=902b3bad709bb990 event=request_end status=200 latency_ms=0.0
+2026/11/16 14:42:17 service=payment request_id=94c6e69123877110 event=request_start method=POST path=/pay delay_ms=0
+2026/11/16 14:42:17 service=payment request_id=94c6e69123877110 event=request_end status=200 latency_ms=0.0
+2026/11/16 14:42:17 service=payment request_id=2771aafb6d6133b4 event=request_start method=POST path=/pay delay_ms=0
+2026/11/16 14:42:17 service=payment request_id=2771aafb6d6133b4 event=request_end status=200 latency_ms=0.1
+2026/11/16 14:42:17 service=payment request_id=b61f6d32d0dfa8fa event=request_start method=POST path=/pay delay_ms=0
+2026/11/16 14:42:17 service=payment request_id=b61f6d32d0dfa8fa event=request_end status=200 latency_ms=0.0
+2026/11/16 14:42:17 service=payment request_id=da92a8a02549b6fd event=request_start method=POST path=/pay delay_ms=0
+2026/11/16 14:42:17 service=payment request_id=da92a8a02549b6fd event=request_end status=200 latency_ms=0.0
+2026/11/16 14:42:18 service=payment request_id=e84617a1667d13f8 event=request_end status=200 latency_ms=3001.4

@@ -1,0 +1,41 @@
+=== Phase 1: normal request ===
+HTTP 200  total=0.009669s  {"request_id":"58c731d128d8e810","status":"order placed"}
+HTTP 200  total=0.001014s  {"request_id":"bbcf82a0ea58b7ba","status":"order placed"}
+HTTP 200  total=0.000831s  {"request_id":"b9f92d8d62e0938b","status":"order placed"}
+checkout metrics:
+{"requests_total":3,"requests_success":3,"requests_failure":0,"error_rate":0,"avg_latency_ms":2.288264,"window_size":3,"window_error_rate":0,"window_avg_latency_ms":2.288264}
+
+=== Phase 2: inject 3000ms payment delay (checkout timeout is 2s) ===
+{"delay_ms":3000}
+
+HTTP 504  total=2.002639s  {"error":"payment timeout","request_id":"3c25a540657537a2","status":"failed"}
+HTTP 504  total=2.002657s  {"error":"payment timeout","request_id":"f1d82afd73a93ebf","status":"failed"}
+HTTP 504  total=2.002710s  {"error":"payment timeout","request_id":"e84617a1667d13f8","status":"failed"}
+checkout metrics:
+{"requests_total":6,"requests_success":3,"requests_failure":3,"error_rate":0.5,"avg_latency_ms":1001.9896945,"window_size":6,"window_error_rate":0.5,"window_avg_latency_ms":1001.9896945}
+checkout still alive:
+GET /metrics -> HTTP 200
+
+=== Phase 3: remove delay, recover ===
+{"delay_ms":0}
+
+HTTP 200  total=0.001572s  {"request_id":"5aa9f232fef754ef","status":"order placed"}
+HTTP 200  total=0.001243s  {"request_id":"a5c18b0300e12c52","status":"order placed"}
+HTTP 200  total=0.000937s  {"request_id":"58d59cf4362a76b2","status":"order placed"}
+HTTP 200  total=0.000888s  {"request_id":"b074efac24a6039b","status":"order placed"}
+HTTP 200  total=0.000901s  {"request_id":"4fc7d5a7ad3bcca8","status":"order placed"}
+HTTP 200  total=0.000967s  {"request_id":"902b3bad709bb990","status":"order placed"}
+HTTP 200  total=0.000885s  {"request_id":"94c6e69123877110","status":"order placed"}
+HTTP 200  total=0.000848s  {"request_id":"2771aafb6d6133b4","status":"order placed"}
+HTTP 200  total=0.000843s  {"request_id":"b61f6d32d0dfa8fa","status":"order placed"}
+HTTP 200  total=0.000817s  {"request_id":"da92a8a02549b6fd","status":"order placed"}
+checkout metrics:
+{"requests_total":16,"requests_success":13,"requests_failure":3,"error_rate":0.1875,"avg_latency_ms":376.00843225,"window_size":10,"window_error_rate":0,"window_avg_latency_ms":0.41967489999999996}
+
+=== Trace one failed request across both services ===
+request_id=3c25a540657537a2
+2026/11/16 14:42:11 service=checkout request_id=3c25a540657537a2 event=request_start method=POST path=/checkout
+2026/11/16 14:42:11 service=payment request_id=3c25a540657537a2 event=request_start method=POST path=/pay delay_ms=3000
+2026/11/16 14:42:13 service=checkout request_id=3c25a540657537a2 event=payment_timeout timeout=2s waited_ms=2001.4
+2026/11/16 14:42:13 service=checkout request_id=3c25a540657537a2 event=request_end status=504 result=failure latency_ms=2001.7
+2026/11/16 14:42:14 service=payment request_id=3c25a540657537a2 event=request_end status=200 latency_ms=3001.5

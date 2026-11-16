@@ -1,0 +1,80 @@
+n this assignment, you will build a small distributed application and use logs, metrics, and request tracing to diagnose a failure.
+
+You may use Python or Go.
+
+Lab Goal
+Build two services:
+
+Checkout Service
+
+Payment Service
+
+The Checkout Service should call the Payment Service when processing an order.
+
+Minimum Requirements
+1. Observability
+Add basic observability to the system.
+
+Your implementation should record:
+
+Request logs
+
+Request latency
+
+Success/failure count
+
+A request or trace ID shared between the services
+
+Demonstrate one successful Checkout → Payment request.
+
+2. Failure Test
+Add a temporary delay to the Payment Service.
+
+The delay should be longer than the Checkout Service timeout.
+
+Demonstrate that:
+
+Checkout detects the timeout.
+
+The service remains running.
+
+Logs clearly show the failed request.
+
+The request/trace ID can be used to follow the request across both services.
+
+3. Recovery
+Remove the Payment Service delay.
+
+Demonstrate that:
+
+Requests succeed again.
+
+Error rate decreases.
+
+Request latency returns to normal.
+
+README Requirements
+Your README must include:
+
+Instructions for running both services.
+
+Simple architecture diagram.
+
+Example of a successful request.
+
+Evidence of the timeout failure.
+
+Logs or metrics showing the failure.
+
+Evidence that the system recovers after the delay is removed.
+
+Screenshots, terminal output, or logs showing the implementation working.
+
+A short 3–5 sentence reflection answering:
+
+How do logs, traces, and metrics help diagnose failures in a distributed system?
+
+Submission
+Submit only your GitHub repository link.
+
+All source code, instructions, results, and evidence must be included in the repository and README.
